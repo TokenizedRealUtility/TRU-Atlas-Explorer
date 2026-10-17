@@ -1,0 +1,19 @@
+
+# Private configuration
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+rpc-cookie-*
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# Local files
+.DS_Store
+*.log
+*.bak
+*.backup

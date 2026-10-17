@@ -1,0 +1,10 @@
+# Replace explorer.example.com with a domain you control.
+# Point its DNS A/AAAA record at your server. Caddy can provision HTTPS.
+explorer.example.com {
+    encode zstd gzip
+    header {
+        X-Content-Type-Options "nosniff"
+        Referrer-Policy "no-referrer"
+    }
+    reverse_proxy 127.0.0.1:3030
+}

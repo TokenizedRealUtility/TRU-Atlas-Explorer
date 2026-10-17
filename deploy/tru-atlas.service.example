@@ -1,0 +1,24 @@
+# Template only. Replace YOUR_LINUX_USER and /home/YOUR_LINUX_USER paths.
+# Save the completed version at /etc/systemd/system/tru-atlas.service
+[Unit]
+Description=TRU Atlas Standalone Read-only Blockchain Explorer
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=YOUR_LINUX_USER
+WorkingDirectory=/home/YOUR_LINUX_USER/TRU-Explorer-Standalone
+ExecStart=/usr/bin/python3 /home/YOUR_LINUX_USER/TRU-Explorer-Standalone/server.py
+Restart=on-failure
+RestartSec=5
+UMask=0077
+NoNewPrivileges=true
+ProtectSystem=strict
+ProtectHome=read-only
+PrivateTmp=true
+CapabilityBoundingSet=
+RestrictAddressFamilies=AF_INET AF_INET6 AF_UNIX
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,242 @@
+/* TRU Atlas 1.1.1 — visual-only, self-hosted three-color theme layer.
+   Loaded AFTER styles.css; no API, server security or blockchain behavior changes.
+   --blue is the established app accent variable, reused deliberately for green. */
+
+html[data-theme="emerald"] {
+  color-scheme: dark;
+  --bg: #041319;
+  --nav: #071b20;
+  --panel: #0c2329;
+  --panel2: #123038;
+  --border: #28504d;
+  --fg: #ecfff8;
+  --muted: #a1c9bb;
+  --sub: #77a99b;
+  --blue: #69f7b7;
+  --purple: #4ecdd5;
+  --mint: #72f2aa;
+  --amber: #ffd084;
+  --rose: #ff879e;
+  --grid: rgba(93, 241, 170, .055);
+  --shadow: 0 18px 55px rgba(0, 0, 0, .26);
+  --ambient-a: #046346;
+  --ambient-b: #00776e;
+  --hero-a: #0c3334;
+  --hero-b: #071922;
+  --hero-glow: rgba(43, 234, 137, .18);
+  --hero-ink: #f0fff8;
+  --hero-muted: #b4d8cb;
+  --hero-fade: #091f24;
+  --active-ink: #d1ffe5;
+  --primary-end: #1e9e87;
+  --primary-ink: #06241c;
+}
+
+html[data-theme="blue"] {
+  color-scheme: dark;
+  --bg: #090f1b;
+  --nav: #0c1323;
+  --panel: #101b2d;
+  --panel2: #131f34;
+  --border: #24314b;
+  --fg: #ecf3ff;
+  --muted: #8c9cb9;
+  --sub: #7184a5;
+  --blue: #6bbcff;
+  --purple: #ac8eff;
+  --mint: #57ecc2;
+  --amber: #fbc27c;
+  --rose: #ff7f9e;
+  --grid: rgba(130, 166, 227, .034);
+  --ambient-a: #183f9f;
+  --ambient-b: #48268e;
+  --hero-a: #122746;
+  --hero-b: #15213d;
+  --hero-glow: rgba(101, 78, 179, .32);
+  --hero-ink: #ffffff;
+  --hero-muted: #a6b9dc;
+  --hero-fade: #142544;
+  --active-ink: #d1eaff;
+  --primary-end: #655bb4;
+  --primary-ink: #fff;
+}
+
+html[data-theme="light"] {
+  color-scheme: light;
+  --bg: #f3f9f7;
+  --nav: #fff;
+  --panel: #fff;
+  --panel2: #ecf5f2;
+  --border: #c9ded7;
+  --fg: #17332f;
+  --muted: #466b63;
+  --sub: #547970;
+  --blue: #006f5d;
+  --purple: #3576ac;
+  --mint: #087b5f;
+  --amber: #986015;
+  --rose: #bb3556;
+  --grid: rgba(27, 118, 95, .065);
+  --shadow: 0 16px 45px rgba(25, 65, 57, .09);
+  --ambient-a: #8ee9c0;
+  --ambient-b: #a4dce8;
+  --hero-a: #e4f8ed;
+  --hero-b: #e5f2fa;
+  --hero-glow: rgba(47, 209, 137, .14);
+  --hero-ink: #173c34;
+  --hero-muted: #416b5f;
+  --hero-fade: #cee4dc;
+  --active-ink: #075b4b;
+  --primary-end: #2c9e93;
+  --primary-ink: #fff;
+}
+
+/* Background, selected navigation, search focus and native controls. */
+.ambient-one { background: var(--ambient-a); opacity: .22; }
+.ambient-two { background: var(--ambient-b); opacity: .19; }
+html[data-theme="light"] .ambient { filter: blur(130px); opacity: .24; }
+::selection { background: var(--blue); color: var(--bg); }
+.nav a.active {
+  color: var(--active-ink);
+  background: linear-gradient(90deg,
+    color-mix(in srgb, var(--blue) 18%, var(--panel)),
+    color-mix(in srgb, var(--blue) 2%, var(--nav)));
+  border-color: color-mix(in srgb, var(--blue) 42%, var(--border));
+  box-shadow: inset 3px 0 var(--blue);
+}
+.nav-icon { color: var(--sub); }
+.nav a.active .nav-icon { color: var(--blue); }
+.version {
+  background: color-mix(in srgb, var(--blue) 12%, var(--panel2));
+  color: var(--blue);
+}
+.global-search input:focus {
+  border-color: var(--blue);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--blue) 18%, transparent);
+}
+:where(a, button, input, select):focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 3px;
+}
+.button.primary {
+  border-color: color-mix(in srgb, var(--blue) 70%, var(--border));
+  background: linear-gradient(115deg, var(--blue), var(--primary-end));
+  color: var(--primary-ink);
+}
+.stat-card::after {
+  background: radial-gradient(circle, color-mix(in srgb, var(--blue) 14%, transparent), transparent 68%);
+}
+.toast {
+  color: var(--fg);
+  border-color: var(--blue);
+  background: var(--panel2);
+}
+.identity .mark {
+  box-shadow: 0 0 24px color-mix(in srgb, var(--blue) 10%, transparent);
+}
+
+/* Hero retains the supplied original blue TRU video, but matches the active UI. */
+.hero {
+  border-color: color-mix(in srgb, var(--blue) 42%, var(--border));
+  background: radial-gradient(circle at 82% 38%, var(--hero-glow), transparent 42%),
+              linear-gradient(118deg, var(--hero-a), var(--hero-b));
+}
+.hero::before {
+  background: linear-gradient(110deg, transparent 12%,
+              color-mix(in srgb, var(--blue) 5%, transparent) 61%, transparent 85%);
+}
+.hero h1 { color: var(--hero-ink); }
+.hero h1 em { color: var(--blue); }
+.hero p { color: var(--hero-muted); }
+.hero-tag {
+  border-color: color-mix(in srgb, var(--blue) 40%, var(--border));
+  background: color-mix(in srgb, var(--blue) 10%, var(--hero-a));
+  color: var(--hero-ink);
+}
+.hero-chip {
+  border-color: color-mix(in srgb, var(--blue) 31%, var(--border));
+  background: color-mix(in srgb, var(--hero-a) 84%, transparent);
+  color: var(--hero-ink);
+}
+.hero-v11 .hero-visual::before {
+  box-shadow: inset 16px 0 32px var(--hero-fade),
+              inset 0 -60px 54px rgba(2, 10, 21, .84);
+}
+.hero-v11 .hero-number {
+  border-color: color-mix(in srgb, var(--blue) 44%, transparent);
+  background: rgba(3, 17, 24, .88);
+  color: #c9f7e5;
+}
+.hero-v11 .hero-number strong { color: #fff; }
+html[data-theme="light"] .hero-v11 .hero-number { color: #c9f7e5; }
+@media (max-width: 650px) {
+  .hero-v11 .hero-visual::before {
+    box-shadow: inset 0 22px 38px var(--hero-fade),
+                inset 0 -42px 35px rgba(2, 10, 21, .85);
+  }
+}
+
+/* Compact accessible theme chooser: no popup library, no external dependencies. */
+.theme-picker {
+  display: flex;
+  flex: none;
+  align-items: center;
+  gap: 8px;
+  min-width: 128px;
+  max-width: 175px;
+  padding: 8px 10px;
+  color: var(--fg);
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  transition: border-color .15s ease, background .15s ease;
+}
+.theme-picker:hover,
+.theme-picker:focus-within {
+  border-color: var(--blue);
+  background: var(--panel2);
+}
+.theme-picker:focus-within {
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--blue) 18%, transparent);
+}
+.theme-picker .theme-swatch {
+  display: inline-block;
+  width: 11px;
+  height: 11px;
+  flex: none;
+  border-radius: 50%;
+  background: var(--blue);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--blue) 18%, transparent);
+}
+.theme-picker select {
+  border: 0;
+  background: transparent;
+  color: var(--fg);
+  width: 100%;
+  min-width: 0;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 740;
+  outline: none;
+  text-overflow: ellipsis;
+}
+.theme-picker select option {
+  background: var(--panel);
+  color: var(--fg);
+}
+.theme-picker select:focus-visible { outline: none; }
+html[data-theme="emerald"] .theme-picker { box-shadow: 0 0 18px rgba(60, 242, 166, .055); }
+@media (max-width: 960px) {
+  .theme-picker { min-width: 108px; max-width: 130px; padding: 7px; }
+  .theme-picker select { font-size: 11px; }
+  .topbar { gap: 10px; }
+}
+@media (max-width: 480px) {
+  .theme-picker { min-width: 92px; max-width: 99px; gap: 5px; padding: 7px 5px; }
+  .theme-picker .theme-swatch { width: 8px; height: 8px; }
+  .theme-picker select { font-size: 11px; }
+  .global-search input { font-size: 11px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .theme-picker { transition: none; }
+}
