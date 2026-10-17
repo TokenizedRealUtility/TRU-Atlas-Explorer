@@ -17,3 +17,9 @@ __pycache__/
 *.log
 *.bak
 *.backup
+
+# Local Atlas theme backups
+.atlas-themes-backup-*/
+
+# GitHub workflow files
+.github/
